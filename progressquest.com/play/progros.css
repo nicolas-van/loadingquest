@@ -1,0 +1,130 @@
+/* RESET (via Boilerplate via Eric Meyer) */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4,
+h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite,
+code, del, dfn, em, font, img, ins, kbd, q, s, samp, small,
+strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd,
+ol, ul, li, fieldset, form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td { 
+  margin: 0; 
+  padding: 0; 
+  border: 0;
+  outline: 0; 
+  font-size: 100%; 
+  vertical-align: baseline;
+  background: transparent; 
+}
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { 
+  content: ''; content: none; 
+}
+:focus { outline: 0; }
+ins { text-decoration: none; }
+del { text-decoration: line-through; }
+table { border-collapse: collapse; border-spacing: 0; }
+
+/* XULish */
+
+.hbox > * { 
+  vertical-align: middle;
+}
+
+.vbox > * { 
+  display: block;
+}
+
+
+.hbox > *, .horizontal > *, td > * { 
+  display: inline-block;
+}
+
+
+.vbox {
+  vertical-align: top;
+}
+
+td, th, .label, tr input, #titlebar, div { 
+  font-family: Tahoma, Helvetica, sans-serif;
+  font-size: 8pt;
+}
+
+td, th { 
+  padding-left: 1ex;
+}
+
+th { 
+  border-bottom: solid 1px grey;
+  background-color: #eee;
+  text-align: left;
+  font-weight: normal;
+}
+
+th:first-child { 
+  border-right: solid 1px grey;
+}
+
+
+#titlebar { 
+  background-color: #008;
+  color: white;
+  font-weight: bold;
+  font-size: 9pt;
+  padding-bottom: 4px;
+  margin-bottom: 1ex;
+}
+
+#titlebar > img { 
+  vertical-align: bottom;
+  margin: 2 0 0 2;
+}
+
+#quit {
+  float: right;
+  background: url(closedown.png);
+  text-decoration: none;
+  margin: 2px 2px 0 0;
+  width: 16px;
+  padding: 0;
+}
+
+#quit:active img {
+  aopacity: 0;
+}
+
+.window { 
+  background-color: #e7e7e7; 
+  border: outset 2px silver;
+  padding: 2px;
+  text-align: left;
+  display: inline-block;
+}
+
+
+body { 
+  background: url(back.jpg) no-repeat;
+  background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  background-attachment: fixed;
+  text-align: center;
+  margin-top: 1em;
+}
+
+div.scroll { 
+  overflow: scroll;
+  height: 100px;
+  width: 250px;
+  overflow-x: hidden;
+}
+
+div.scroll > table { 
+  width: 234px;
+}
+
+.selected { 
+  background-color: yellow;
+}
+

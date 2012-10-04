@@ -1,0 +1,137 @@
+
+body {
+  height: 100%;
+}
+
+thead.mid { 
+  border-top: solid 1px grey;
+}
+
+.label { 
+  margin-top: 3px;
+}
+
+.listbox { 
+  border: solid 1px black;
+  background-color: white;
+}
+
+
+.head {
+  font-weight: bold;
+  font-size: 9pt;
+  margin: 2px 0 2px 0;
+}
+
+input { 
+  height: 10px;
+  color: black;
+}
+
+div.progress-container { 
+  border: 1px solid #ccc; 
+  margin: 2px 5px 2px 0; 
+  padding: 1px; 
+  background: white;
+  overflow: hidden;
+}
+
+div.progress-container > div.bar { 
+  background-color: #ACE97C; 
+  height: 12px;
+}
+
+div.hint { 
+  z-index: 20;
+  position: absolute;
+  margin-top: 1px;
+  visibility: hidden;
+  text-align: center;
+  color: #060;
+}
+
+div.progress-container:hover div.hint { 
+  visibility: visible;
+}
+
+#main.window { 
+  width: 686px; 
+}
+
+#Trats, 
+#Plots,  #Plots table,
+#Quests, #Quests table { 
+  width: 200px;
+}
+
+#Izquierda, #Derecha {
+  width: 202px;
+}
+
+#Spells       { width: 200px; }
+#Spells table { width: 184px; }
+
+#Trats th,             #Trats td             { width: 145px; }
+#Trats th:first-child, #Trats td:first-child { width:  55px; }
+
+tr         { height:  15px; }
+#Spells    { height: 236px; }
+#Inventory { height: 281px; }
+#Plots     { height: 147px; }
+#Quests    { height: 294px; }
+
+
+#ExpBar, #ExpBar .hint, 
+#PlotBar, #PlotBar .hint,
+#QuestBar, #QuestBar .hint { 
+  width: 198px;
+}
+
+#Equips {
+  width: 272px;
+}
+
+#Inventory       { width: 270px; }
+#Inventory table { width: 254px; }
+
+#Centro { 
+  width: 274px; 
+}
+
+#Equips th,             #Equips td             { width: 202px; }
+#Equips th:first-child, #Equips td:first-child { width:  70px; }
+
+#EncumBar, #EncumBar .hint { 
+  width: 268px;
+}
+
+#Spells .value { 
+ width: 12ex;
+}
+
+#Inventory .value {
+  width: 6ex;
+}
+
+#TaskBar, #TaskBar .hint { 
+  width: 680px;
+}
+
+#Quests td, #Plots td { 
+  padding-left: 0;
+}
+
+body.iOS div.hint {
+  visibility: visible;
+}
+
+div#paused {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 160px;
+  opacity: 0.5;
+}

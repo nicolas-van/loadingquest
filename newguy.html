@@ -5,14 +5,14 @@
     <script src="json2.js"></script>
     <script src="jquery.js"></script>
     <script src="config.js"></script>
-    <script src="newguy.js"></script>
+    <script src="main.js"></script>
     <script>
         $(document).ready(function() {
-            ProgressQuestNewGuy.NewGuyFormLoad();
-            ProgressQuestNewGuy.sold_def.then(function(guy_name) {
+            ProgressQuest.NewGuyFormLoad();
+            ProgressQuest.sold_def.then(function(guy_name) {
               window.location.href = "main.html#" + escape(guy_name);
             });
-            $("#Sold").click(ProgressQuestNewGuy.sold);
+            $("#Sold").click(ProgressQuest.sold);
         });
     </script>
 </head>

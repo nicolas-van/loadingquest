@@ -1,5 +1,7 @@
 // Copyright (c)2002-2010 Eric Fredricksen <e@fredricksen.net> all rights reserved
 
+ProgressQuest = (function() {
+
 var game = {};
 var lasttick, timerid;
 
@@ -544,10 +546,6 @@ function StrToIntDef(s, def) {
   var result = parseInt(s, 10);
   return isNaN(result) ? def : result;
 }
-
-
-if (document)
-  $(document).ready(FormCreate);
 
 
 function WinSpell() {
@@ -1185,3 +1183,6 @@ function Brag(trigger) {
   }
 }
 
+return {FormCreate: FormCreate};
+
+})();

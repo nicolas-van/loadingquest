@@ -7,15 +7,18 @@
     <script src="config.js"></script>
     <script src="newguy.js"></script>
     <script>
-        ProgressQuestNewGuy()();
+        $(document).ready(function() {
+            ProgressQuestNewGuy.NewGuyFormLoad();
+            ProgressQuestNewGuy.sold_def.then(function(guy_name) {
+              window.location.href = "main.html#" + escape(guy_name);
+            });
+            $("#Sold").click(ProgressQuestNewGuy.sold);
+        });
     </script>
 </head>
 
 <body>
-
-    <div class=hbox style="text-align:right;padding-top:15px">
-        <button id=Sold>Sold!</button>
-    </div>
+    <button id="Sold">Sold!</button>
 </body>
 
 </html>

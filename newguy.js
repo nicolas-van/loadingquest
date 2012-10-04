@@ -1,6 +1,8 @@
 /* copyright (c)2002-2010 Eric Fredricksen all rights reserved */
 
-ProgressQuestNewGuy = function() {
+ProgressQuestNewGuy = (function() {
+  var document = undefined;
+
   function Roll(stat) {
     stats[stat] = 3 + Random(6) + Random(6) + Random(6);
     if (document)
@@ -206,10 +208,12 @@ ProgressQuestNewGuy = function() {
     newguy.Equips.Hauberk = "-3 Burlap";
 
     storage.addToRoster(newguy, function () {
-      window.location.href = "main.html#" + escape(newguy.Traits.Name);
+      sold_def.resolve(newguy.Traits.Name);
     });
 
   }
+
+  var sold_def = $.Deferred();
 
   function cancel() {
     window.location.href = "roster.html";
@@ -221,6 +225,6 @@ ProgressQuestNewGuy = function() {
       $("#Name").attr("value", traits.Name);
   }
 
-  return sold;
-};
+  return {NewGuyFormLoad: NewGuyFormLoad, sold: sold, sold_def: sold_def};
+})();
 

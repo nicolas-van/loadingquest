@@ -20,8 +20,16 @@
                 var $tmp = $("<div />");
                 $tmp.text(text);
                 $(".killing").append($tmp);
-                if ($(".killing").children().size() > 100) {
-                    $($(".killing").children()[0]).remove();
+                while (true) {
+                    var tot = 0;
+                    $(".killing").children().each(function(el) {
+                        tot += $(this).height();
+                    });
+                    if (tot >= $(".killing").height()) {
+                        $($(".killing").children()[0]).remove();
+                    } else {
+                        break;
+                    }
                 }
             };
             pq.launch();
@@ -30,8 +38,10 @@
 </head>
 
 <body>
-    <div class="killing">
-
+    <div class="tablediv">
+        <div class="vcenterdiv">
+            <div class="killing" />
+        <div>
     </div>
 </body>
 

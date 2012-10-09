@@ -1,1 +1,33 @@
 
+@back_color: #232323;
+@text_color: #919191;
+@border_color: #616161;
+
+html, body {
+    height: 100%;
+    background-color: @back_color;
+    color: @text_color;
+}
+
+.tablediv {
+    width: 500px;
+    margin: auto;
+    display: table;
+    height: 100%;
+}
+
+.vcenterdiv {
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+    width: 100%;
+}
+
+.killing {
+    margin: auto;
+    height: 235px;
+    overflow-y: hide;
+    padding: 15px;
+    border: 1px solid @border_color;
+    border-radius: 8px;
+}

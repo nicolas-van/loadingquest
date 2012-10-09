@@ -19,17 +19,27 @@
             pq.events.killing = function(text) {
                 var $tmp = $("<div />");
                 $tmp.text(text);
-                $(".killing").append($tmp);
+                $(".killing_content").append($tmp);
                 while (true) {
                     var tot = 0;
-                    $(".killing").children().each(function(el) {
+                    $(".killing_content").children().each(function(el) {
                         tot += $(this).height();
                     });
-                    if (tot >= $(".killing").height()) {
-                        $($(".killing").children()[0]).remove();
+                    if (tot >= $(".killing_content").height()) {
+                        $($(".killing_content").children()[0]).remove();
                     } else {
                         break;
                     }
+                    break;
+                }
+            };
+            pq.events.progression = function(id, progression) {
+                if (id === "TaskBar") {
+                    var max = $(".task .prog").width();
+                    $(".task .prog div").width(max * progression);
+                } else if (id === "ExpBar") {
+                    var max = $(".xp .prog").width();
+                    $(".xp .prog div").width(max * progression);
                 }
             };
             pq.launch();
@@ -46,7 +56,19 @@
                     <h1>Super Progress Quest<h1>
                 </div>
             </header>
-            <div class="killing" />
+            <div class="killing">
+                <div class="killing_content" />
+            </div>
+            <div class="infobox">
+                <div class="task">
+                    <div>Progression</div>
+                    <div class="prog"><div></div></div>
+                </div>
+                <div class="xp">
+                    <div>Experience</div>
+                    <div class="prog"><div></div></div>
+                </div>
+            </div>
         <div>
     </div>
 </body>

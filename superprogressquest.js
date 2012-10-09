@@ -10,6 +10,7 @@ var events = {
   cancel: function() {},
   to_roster: function() {},
   alert: function() {},
+  progression: function(id, prog) {},
 };
 
 // TODO These code bits don't really belong here, but this is the only 
@@ -2196,7 +2197,7 @@ function timeGetTime() {
 function StartTimer() {
   if (!timerid) {
     lasttick = timeGetTime();
-    timerid = setTimeout(Timer1Timer, 100);
+    timerid = setTimeout(Timer1Timer, 10);
   }
 }
 
@@ -2591,11 +2592,12 @@ function ProgressBar(id, tmpl) {
     game[this.id].hint = template(this.tmpl, game[this.id]);
 
     // Update UI
+    var p = this.Max() ? this.Position() / this.Max() : 0;
     if (this.bar) {
-      var p = this.Max() ? 100 * this.Position() / this.Max() : 0;
-      this.bar.css("width", p + "%");
+      this.bar.css("width", (p * 100) + "%");
       this.bar.parent().find(".hint").text(game[this.id].hint);
     }
+    events.progression(this.id, p);
   };
 
   this.increment = function (inc) {
@@ -3028,6 +3030,7 @@ function Max(a,b) {
 }
 
 function LevelUp() {
+  events.killing("You gain one level");
   Add(Traits,'Level',1);
   Add(Stats,'HP Max', GetI(Stats,'CON').div(3) + 1 + Random(4));
   Add(Stats,'MP Max', GetI(Stats,'INT').div(3) + 1 + Random(4));

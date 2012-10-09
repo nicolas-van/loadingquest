@@ -1095,6 +1095,7 @@ function Timer1Timer() {
     }
 
     Dequeue();
+    SaveGame();
   } else {
     var elapsed = timeGetTime() - lasttick;
     if (elapsed > 100) elapsed = 100;
@@ -1105,7 +1106,7 @@ function Timer1Timer() {
   StartTimer();
 }
 
-function FormCreate() {
+function FormCreate(name) {
   ExpBar =   new ProgressBar("ExpBar", "$remaining XP needed for next level");
   EncumBar = new ProgressBar("EncumBar", "$position/$max cubits");
   PlotBar =  new ProgressBar("PlotBar", "$time remaining");
@@ -1159,7 +1160,6 @@ function FormCreate() {
     if (iOS) $("body").addClass("iOS");
   }
 
-  var name = unescape(window.location.href.split('#')[1]);
   storage.loadSheet(name, LoadGame);
 }
 
@@ -1221,14 +1221,6 @@ function LoadGame(sheet) {
   }
 
   game = sheet;
-
-  /*
-  if (!window.localStorage) {
-    // Cookies can't hold a whole game save
-    storage.removeItem("roster");
-    storage = null;
-  }
-*/
 
   if (document) {
     var title = "Progress Quest - " + GameSaveName();

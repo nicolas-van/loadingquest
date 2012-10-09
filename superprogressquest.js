@@ -2197,7 +2197,7 @@ function timeGetTime() {
 function StartTimer() {
   if (!timerid) {
     lasttick = timeGetTime();
-    timerid = setTimeout(Timer1Timer, 100);
+    timerid = setTimeout(Timer1Timer, 10);
   }
 }
 

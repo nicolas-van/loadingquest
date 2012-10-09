@@ -26,12 +26,14 @@ html, body {
 }
 
 .killing {
-    margin: auto;
     height: 235px;
-    overflow-y: hide;
     padding: 15px;
     border: 1px solid @border_color;
     border-radius: 8px;
+}
+
+.killing_content {
+    height: 205px;
 }
 
 header {
@@ -43,5 +45,29 @@ header {
         width: 500px;
         font-family: 'Irish Grover', cursive;
         font-size: 1.5em;
+    }
+}
+
+.infobox {
+    display: table;
+    width: 100%;
+
+    .task, .xp {
+        font-size: 11px;
+        height: 15px;
+        display: table-row;
+        div {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .prog {
+            width: 100%;
+            padding: 3px 15px;
+            div {
+                background-color: @border_color;
+                width: 0px;
+                height: 9px;
+            }
+        }
     }
 }

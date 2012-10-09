@@ -16,7 +16,7 @@
     <script>
         $(document).ready(function() {
             var pq = new ProgressQuest();
-            pq.events.killing = function(text) {
+            var display = function(text) {
                 var $tmp = $("<div />");
                 $tmp.text(text);
                 $(".killing_content").append($tmp);
@@ -32,7 +32,8 @@
                     }
                     break;
                 }
-            };
+            }
+            pq.events.killing = display;
             pq.events.progression = function(id, progression) {
                 if (id === "TaskBar") {
                     var max = $(".task .prog").width();
@@ -47,6 +48,7 @@
                     $(".level .prog").text(value);
                 }
             };
+            pq.events.item = display;
             pq.launch();
         });
     </script>

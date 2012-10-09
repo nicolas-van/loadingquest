@@ -12,6 +12,7 @@ var events = {
   alert: function() {},
   progression: function(id, prog) {},
   print_list: function(id, key, value) {},
+  item: function(text) {},
 };
 
 // TODO These code bits don't really belong here, but this is the only 
@@ -2970,6 +2971,7 @@ function CompleteAct() {
 function Log(line) {
   if (game.log)
     game.log[+new Date()] = line;
+  console.log(line);
   // TODO: and now what?
 }
 
@@ -2993,6 +2995,7 @@ function Add(list, key, value) {
   if (value < 0) value = -value;
   line = line + ' ' + Indefinite(key, value);
   Log(line);
+  events.item(line);
   /*$ENDIF*/
 }
 
@@ -3208,7 +3211,7 @@ function HotOrNot() {
 
 
 function SaveGame(callback) {
-  Log('Saving game: ' + GameSaveName());
+  //Log('Saving game: ' + GameSaveName());
   HotOrNot();
   game.date = ''+new Date();
   game.stamp = +new Date();

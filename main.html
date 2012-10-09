@@ -2,13 +2,15 @@
 <html>
 
 <head>
-  <script src="json2.js"></script>
   <script src="jquery.js"></script>
   <script src="config.js"></script>
   <script src="main.js"></script>
   <script>
     $(document).ready(function() {
       ProgressQuest.FormCreate();
+      ProgressQuest.events.killing = function(text) {
+        $("#Kill").text(text);
+      };
     });
   </script>
 </head>

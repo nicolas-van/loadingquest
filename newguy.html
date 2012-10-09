@@ -2,17 +2,13 @@
 <html>
 
 <head>
-    <script src="json2.js"></script>
     <script src="jquery.js"></script>
     <script src="config.js"></script>
     <script src="main.js"></script>
     <script>
         $(document).ready(function() {
             ProgressQuest.NewGuyFormLoad();
-            ProgressQuest.sold_def.then(function(guy_name) {
-              window.location.href = "main.html#" + escape(guy_name);
-            });
-            $("#Sold").click(ProgressQuest.sold);
+            ProgressQuest.sold();
         });
     </script>
 </head>

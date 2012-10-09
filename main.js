@@ -2,6 +2,18 @@
 
 ProgressQuest = (function() {
 
+var document = undefined;
+
+var events = {
+  character_created: function(guy_name) {
+    window.location.href = "main.html#" + escape(guy_name);
+  },
+  killing: function(text) {
+    if (Kill)
+      Kill.text(text);
+  },
+};
+
 function Roll(stat) {
   stats[stat] = 3 + Random(6) + Random(6) + Random(6);
   if (document)
@@ -109,54 +121,6 @@ function NewGuyFormLoad() {
 if (document)
   $(document).ready(NewGuyFormLoad);
 
-/* Multiplayer:
-function TNewGuyForm_ParseSoldResponse(body) {
-  if ((LowerCase(Split(body,0)) == 'ok')) {
-    MainForm.SetPasskey(Split(body,1));
-    MainForm.SetLogin(GetAccount);
-    MainForm.SetPassword(GetPassword);
-    ModalResult = mrOk;
-  } else {
-    ShowMessage(body);
-  }
-}
-
-function TNewGuyForm_GetAccount() {
-  return Account.Visible ? Account.Text : '';
-}
-
-function TNewGuyForm_GetPassword() {
-  return (Password.Visible) ? Password.Text : '';
-}
-
-function TNewGuyForm_SoldClick() {
-  if (MainForm.GetHostAddr == '') {
-    ModalResult = mrOk;
-  } else {
-    try {
-      Screen.Cursor = crHourglass;
-      try {
-        if ((MainForm.Label8.Tag && 16) == 0
-       ) url = MainForm.GetHostAddr
-        else url = 'http://www.progressquest.com/create.php?';
-        // url = StringReplace(url, '.com/', '.com/dev/', []);
-        if ((GetAccount() != '') || (GetPassword != ''))
-          url = StuffString(url, 8, 0, GetAccount() + ':' + GetPassword() + '@');
-        args = 'cmd=create' +
-                '&name=' + escape(Name.Text) +
-                '&realm=' + escape(MainForm.GetHostName) +
-                RevString;
-        ParseSoldResponse(DownloadString(url + args));
-      } catch (EWebError) {
-        ShowMessage('Error connecting to server');
-      }
-    } finally {
-      Screen.Cursor = crDefault;
-    }
-  }
-}
-*/
-
 function sold() {
   var newguy = {
     Traits: traits,
@@ -207,12 +171,10 @@ function sold() {
   newguy.Equips.Hauberk = "-3 Burlap";
 
   storage.addToRoster(newguy, function () {
-    sold_def.resolve(newguy.Traits.Name);
+    events.character_created(newguy.Traits.Name);
   });
 
 }
-
-var sold_def = $.Deferred();
 
 function cancel() {
   window.location.href = "roster.html";
@@ -1009,8 +971,7 @@ function Log(line) {
 
 function Task(caption, msec) {
   game.kill = caption + "...";
-  if (Kill)
-    Kill.text(game.kill);
+  events.killing(game.kill);
   Log(game.kill);
   TaskBar.reset(msec);
 }
@@ -1280,8 +1241,7 @@ function LoadGame(sheet) {
 
   randseed(game.seed);
   $.each(AllBars.concat(AllLists), function (i, e) { e.load(game); });
-  if (Kill)
-    Kill.text(game.kill);
+  events.killing(game.kill);
   ClearAllSelections();
   $.each([Plots,Quests], function () {
     this.CheckAll(true);
@@ -1374,11 +1334,6 @@ function FormKeyDown(e) {
     alert('Saved (' + JSON.stringify(game).length + ' bytes).');
   }
 
-  /*
-  if (key === 't') {
-    TaskBar.reposition(TaskBar.Max());
-  }
-  */
 }
 
 function Navigate(url) {
@@ -1405,6 +1360,6 @@ function Brag(trigger) {
   }
 }
 
-return {NewGuyFormLoad: NewGuyFormLoad, sold: sold, sold_def: sold_def, FormCreate: FormCreate};
+return {NewGuyFormLoad: NewGuyFormLoad, sold: sold, events: events, FormCreate: FormCreate};
 
 })();

@@ -5,12 +5,11 @@ ProgressQuest = function() {
 var document = undefined;
 
 var events = {
-  character_created: function(guy_name) {
-    window.location.href = "main.html#" + escape(guy_name);
-  },
-  killing: function(text) {
-    $("#Kill").text(text);
-  },
+  character_created: function(guy_name) {},
+  killing: function(text) {},
+  cancel: function() {},
+  to_roster: function() {},
+  alert: function() {},
 };
 
 function Roll(stat) {
@@ -111,9 +110,6 @@ function NewGuyFormLoad() {
     $("#Name").focus();
     $("#Name").select();
   }
-
-  if (window.location.href.indexOf("?sold") > 0)
-    sold();  // TODO: cheesy
 }
 
 
@@ -176,7 +172,7 @@ function sold() {
 }
 
 function cancel() {
-  window.location.href = "roster.html";
+  events.cancel();
 }
 
 function GenClick() {
@@ -1166,16 +1162,16 @@ function FormCreate(name) {
 
 
 function pause(msec) {
-  window.showModalDialog("javascript:document.writeln ('<script>window.setTimeout(" +
+  /*window.showModalDialog("javascript:document.writeln ('<script>window.setTimeout(" +
                          "function () { window.close(); }," + msec + ");</script>')",
                          null, 
                          "dialogWidth:0;dialogHeight:0;dialogHide:yes;unadorned:yes;"+
-                  "status:no;scroll:no;center:no;dialogTop:-10000;dialogLeft:-10000");
+                  "status:no;scroll:no;center:no;dialogTop:-10000;dialogLeft:-10000");*/
 }
 
 function quit() {
   $(window).unbind('unload');
-  SaveGame(function () { window.location.href = "roster.html"; });
+  SaveGame(function () { events.to_roster(); });
 }
 
 
@@ -1215,8 +1211,7 @@ function SaveGame(callback) {
 
 function LoadGame(sheet) {
   if (!sheet) {
-    alert("Error loading game");
-    window.location.href = "roster.html";
+    events.to_roster();
     return;
   }
 
@@ -1292,7 +1287,6 @@ function FormKeyDown(e) {
   if (game.isonline) {
     if (key === 'b') {
       Brag('brag');
-      //Navigate(GetHostAddr() + 'name=' + UrlEncode(Get(Traits,'Name')));
     }
     
     if (key === 'g') {
@@ -1327,10 +1321,6 @@ function FormKeyDown(e) {
 
 }
 
-function Navigate(url) {
-  window.open(url);
-}
-
 function LFSR(pt, salt) {
   var result = salt;
   for (var k = 1; k <= Length(pt); ++k)
@@ -1346,11 +1336,34 @@ function Brag(trigger) {
     game.bragtrigger = trigger;
     $.post("webrag.php", game, function (data, textStatus, request) {
       if (data.alert)
-        alert(data.alert);
+        events.alert(data.alert);
     }, "json");
   }
 }
 
-return {NewGuyFormLoad: NewGuyFormLoad, sold: sold, events: events, FormCreate: FormCreate};
+function launch() {
+  if (localStorage.getItem("progressquestplayer")) {
+    real_launch(localStorage.getItem("progressquestplayer"));
+  } else {
+    NewGuyFormLoad();
+    events.character_created = function(name) {
+      localStorage.setItem("progressquestplayer", name);
+      launch();
+    };
+    sold();
+  }
+}
+
+function real_launch(name) {
+  FormCreate(name);
+}
+
+return {
+  events: events,
+  launch: launch,
+};
+
+this.events = events;
+this.launch = launch;
 
 };

@@ -7,8 +7,11 @@
   <script src="main.js"></script>
   <script>
     $(document).ready(function() {
-      var pq = ProgressQuest();
-      pq.FormCreate(unescape(window.location.href.split('#')[1]));
+      var pq = new ProgressQuest();
+      pq.events.killing = function(text) {
+        $("#Kill").text(text);
+      };
+      pq.launch();
     });
   </script>
 </head>

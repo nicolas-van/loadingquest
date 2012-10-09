@@ -255,7 +255,7 @@ storage.loadRoster = function (callback) {
     storage.games = value || {};
     callback(storage.games);
   }
-  this.getItem("roster", gotItem);
+  this.getItem("progressquestroster", gotItem);
 }
 
 storage.loadSheet = function (name, callback) {
@@ -269,7 +269,7 @@ storage.loadSheet = function (name, callback) {
 storage.storeRoster = function (roster, callback) {
   this.games = roster;
   try {
-    this.setItem("roster", JSON.stringify(roster), callback);
+    this.setItem("progressquestroster", JSON.stringify(roster), callback);
   } catch (err) {
     if (err.toString().indexOf("QUOTA_EXCEEDED_ERR") != -1) {
       alert("This browser lacks storage capacity to save this game. This game can continue but cannot be saved. (Mobile Safari, I'll wager?)");

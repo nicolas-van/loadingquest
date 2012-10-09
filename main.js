@@ -1,6 +1,6 @@
 // Copyright (c)2002-2010 Eric Fredricksen <e@fredricksen.net> all rights reserved
 
-ProgressQuest = (function() {
+ProgressQuest = function() {
 
 var document = undefined;
 
@@ -9,8 +9,7 @@ var events = {
     window.location.href = "main.html#" + escape(guy_name);
   },
   killing: function(text) {
-    if (Kill)
-      Kill.text(text);
+    $("#Kill").text(text);
   },
 };
 
@@ -1362,4 +1361,4 @@ function Brag(trigger) {
 
 return {NewGuyFormLoad: NewGuyFormLoad, sold: sold, events: events, FormCreate: FormCreate};
 
-})();
+};

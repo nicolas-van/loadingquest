@@ -7,10 +7,8 @@
   <script src="main.js"></script>
   <script>
     $(document).ready(function() {
-      ProgressQuest.FormCreate();
-      ProgressQuest.events.killing = function(text) {
-        $("#Kill").text(text);
-      };
+      var pq = ProgressQuest();
+      pq.FormCreate();
     });
   </script>
 </head>

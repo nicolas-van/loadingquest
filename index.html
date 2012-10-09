@@ -42,6 +42,11 @@
                     $(".xp .prog div").width(max * progression);
                 }
             };
+            pq.events.print_list = function(id, key, value) {
+                if (id === "Traits" && key === "Level") {
+                    $(".level .prog").text(value);
+                }
+            };
             pq.launch();
         });
     </script>
@@ -63,6 +68,10 @@
                 <div class="task">
                     <div>Progression</div>
                     <div class="prog"><div></div></div>
+                </div>
+                <div class="level">
+                    <div>Level</div>
+                    <div class="prog"></div>
                 </div>
                 <div class="xp">
                     <div>Experience</div>

@@ -11,6 +11,7 @@ var events = {
   to_roster: function() {},
   alert: function() {},
   progression: function(id, prog) {},
+  print_list: function(id, key, value) {},
 };
 
 // TODO These code bits don't really belong here, but this is the only 
@@ -2646,6 +2647,7 @@ function ListBox(id, columns, fixedkeys) {
   };
 
   this.PutUI = function (key, value) {
+    events.print_list(this.id, key, value);
     if (!this.box) return;
     var item = this.rows().filter(function (index) {
       return Key(this) === key;

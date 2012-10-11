@@ -1,4 +1,3 @@
-// Copyright (c)2002-2010 Eric Fredricksen <e@fredricksen.net> all rights reserved
 
 ProgressQuest = function() {
 
@@ -14,6 +13,8 @@ var events = {
   print_list: function(id, key, value) {},
   item: function(text) {},
 };
+
+// Copyright (c)2002-2010 Eric Fredricksen <e@fredricksen.net> all rights reserved
 
 // TODO These code bits don't really belong here, but this is the only 
 // shared bit of js

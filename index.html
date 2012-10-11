@@ -47,13 +47,10 @@
                     if (! bar_color) {
                         bar_color = $(".xp .prog div").css("background-color");
                     } else {
+                        $(".xp .prog div").css("background-color", "#ADAD33");
                         $(".xp .prog div").animate({
-                            "background-color": "#ADAD33",
-                        }, 200, function() {
-                            $(".xp .prog div").animate({
-                                "background-color": bar_color,
-                            }, 200);
-                        });
+                            "background-color": bar_color,
+                        }, 200);
                     }
                 }
             };

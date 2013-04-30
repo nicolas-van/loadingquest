@@ -2,7 +2,7 @@
 (function() {
 
 if (typeof(define) !== "undefined") { // amd
-    define(["jquery"], declare);
+    define(["jquery", "jquery-ui"], declare);
 } else { // define global variable
     window.superprogressquest = declare($);
 }

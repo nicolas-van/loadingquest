@@ -120,6 +120,10 @@ var setTimeout = function() {
 
 var document = undefined;
 
+var console = {
+  log: function() {},
+};
+
 var events = {
   character_created: function(guy_name) {},
   killing: function(text) {},

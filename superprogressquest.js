@@ -9,9 +9,9 @@ if (typeof(define) !== "undefined") { // amd
 
 function declare($) {
 
-var superprogressquest = {};
+var spq = {};
 
-superprogressquest.ProgressQuest = function() {
+spq.ProgressQuest = function() {
 
 var document = undefined;
 
@@ -3391,7 +3391,7 @@ this.launch = launch;
 
 };
 
-return superprogressquest;
+return spq;
 }
 
 })();

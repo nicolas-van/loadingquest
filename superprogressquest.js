@@ -129,8 +129,8 @@ function tabulate(list) {
 }
 
 
-String.prototype.escapeHtml = function () {
-  return this.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+function escapeHtml(arg) {
+  return arg.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
 
@@ -144,7 +144,7 @@ function template(tmpl, data) {
       } else {
         dict = dict[v.replace("_"," ")];
         if (typeof dict == typeof "")
-          dict = dict.escapeHtml();
+          dict = escapeHtml(dict);
       }
       return null;
     });
@@ -409,8 +409,8 @@ storage.addToRoster = function (newguy, callback) {
   }
 }
 
-Number.prototype.div = function (divisor) {
-  var dividend = this / divisor;
+function div(arg, divisor) {
+  var dividend = arg / divisor;
   return (dividend < 0 ? Math.ceil : Math.floor)(dividend);
 };
 
@@ -1131,8 +1131,8 @@ function tabulate(list) {
 }
 
 
-String.prototype.escapeHtml = function () {
-  return this.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+function escapeHtml(arg) {
+  return arg.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
 
@@ -1146,7 +1146,7 @@ function template(tmpl, data) {
       } else {
         dict = dict[v.replace("_"," ")];
         if (typeof dict == typeof "")
-          dict = dict.escapeHtml();
+          dict = escapeHtml(dict);
       }
       return null;
     });
@@ -1411,8 +1411,8 @@ storage.addToRoster = function (newguy, callback) {
   }
 }
 
-Number.prototype.div = function (divisor) {
-  var dividend = this / divisor;
+function div(arg, divisor) {
+  var dividend = arg / divisor;
   return (dividend < 0 ? Math.ceil : Math.floor)(dividend);
 };
 
@@ -2150,8 +2150,8 @@ function RollEm() {
       stats.best = this;
     }
   });
-  stats['HP Max'] = Random(8) + stats.CON.div(6);
-  stats['MP Max'] = Random(8) + stats.INT.div(6);
+  stats['HP Max'] = Random(8) + div(stats.CON, 6);
+  stats['MP Max'] = Random(8) + div(stats.INT, 6);
 
   var color = 
     (total >= (63+18)) ? 'red'    :
@@ -2685,7 +2685,7 @@ function ProgressBar(id, tmpl) {
     game[this.id].position = Min(newpos, this.Max());
 
     // Recompute hint
-    game[this.id].percent = (100 * this.Position()).div(this.Max());
+    game[this.id].percent = div(100 * this.Position(), this.Max());
     game[this.id].remaining = Math.floor(this.Max() - this.Position());
     game[this.id].time = RoughTime(this.Max() - this.Position());
     game[this.id].hint = template(this.tmpl, game[this.id]);
@@ -3134,8 +3134,8 @@ function Max(a,b) {
 function LevelUp() {
   events.killing("You gain one level");
   Add(Traits,'Level',1);
-  Add(Stats,'HP Max', GetI(Stats,'CON').div(3) + 1 + Random(4));
-  Add(Stats,'MP Max', GetI(Stats,'INT').div(3) + 1 + Random(4));
+  Add(Stats,'HP Max', div(GetI(Stats,'CON'), 3) + 1 + Random(4));
+  Add(Stats,'MP Max', div(GetI(Stats,'INT'), 3) + 1 + Random(4));
   WinStat();
   WinStat();
   WinSpell();
@@ -3149,11 +3149,11 @@ function ClearAllSelections() {
 
 function RoughTime(s) {
   if (s < 120) return s + ' seconds';
-  else if (s < 60 * 120) return s.div(60) + ' minutes';
-  else if (s < 60 * 60 * 48) return s.div(3600) + ' hours';
-  else if (s < 60 * 60 * 24 * 60) return s.div(3600 * 24) + ' days';
-  else if (s < 60 * 60 * 24 * 30 * 24) return s.div(3600 * 24 * 30) +" months";
-  else return s.div(3600 * 24 * 30 * 12) + " years";
+  else if (s < 60 * 120) return div(s, 60) + ' minutes';
+  else if (s < 60 * 60 * 48) return div(s, 3600) + ' hours';
+  else if (s < 60 * 60 * 24 * 60) return div(s, 3600 * 24) + ' days';
+  else if (s < 60 * 60 * 24 * 30 * 24) return div(s, 3600 * 24 * 30) +" months";
+  else return div(s, 3600 * 24 * 30 * 12) + " years";
 
 }
 
@@ -3167,7 +3167,7 @@ function Timer1Timer() {
   timerid = null;  // Event has fired
   if (TaskBar.done()) {
     game.tasks += 1;
-    game.elapsed += TaskBar.Max().div(1000);
+    game.elapsed += div(TaskBar.Max(), 1000);
 
     ClearAllSelections();
 

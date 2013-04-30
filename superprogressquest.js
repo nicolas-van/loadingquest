@@ -3464,11 +3464,6 @@ function real_launch(name) {
   FormCreate(name);
 }
 
-return {
-  events: events,
-  launch: launch,
-};
-
 this.events = events;
 this.launch = launch;
 

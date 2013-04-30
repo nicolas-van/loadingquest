@@ -11,7 +11,90 @@ function declare($) {
 
 var spq = {};
 
-spq.ProgressQuest = function() {
+var $display_div;
+
+spq.launch = function() {
+    if ($display_div) {
+        throw new Error("No multiple instances allowed");
+    }
+    $display_div = $(html);
+    $("body").append($display_div);
+    var pq = new spq.ProgressQuestLowLevel();
+    var display = function(text) {
+        var $tmp = $("<div />");
+        $tmp.text(text);
+        $display_div.find(".killing_content").append($tmp);
+        while (true) {
+            var tot = 0;
+            $display_div.find(".killing_content").children().each(function(el) {
+                tot += $(this).height();
+            });
+            if (tot >= $display_div.find(".killing_content").height()) {
+                $($display_div.find(".killing_content").children()[0]).remove();
+            } else {
+                break;
+            }
+            break;
+        }
+    }
+    pq.events.killing = display;
+    var bar_color;
+    pq.events.progression = function(id, progression) {
+        if (id === "TaskBar") {
+            var max = $display_div.find(".task .prog").width();
+            $display_div.find(".task .prog div").width(max * progression);
+        } else if (id === "ExpBar") {
+            var max = $display_div.find(".xp .prog").width();
+            $display_div.find(".xp .prog div").width(max * progression);
+            if (! bar_color) {
+                bar_color = $(".xp .prog div").css("background-color");
+            } else {
+                $display_div.find(".xp .prog div").animate({
+                    "background-color": "#ADAD33",
+                }, 100, function() {
+                    $display_div.find(".xp .prog div").animate({
+                        "background-color": bar_color,
+                    }, 300);
+                });
+            }
+        }
+    };
+    pq.events.print_list = function(id, key, value) {
+        if (id === "Traits" && key === "Level") {
+            $display_div.find(".level .prog").text(value);
+        }
+    };
+    pq.events.item = display;
+    pq.launch();
+}
+
+var html = '' +
+    '    <div class="superprogressquest">'+
+    '            <header>' +
+    '                <div>' +
+    '                    <h1>Super Progress Quest<h1>' +
+    '                </div>' +
+    '            </header>' +
+    '            <div class="killing">' +
+    '                <div class="killing_content" />' +
+        '            <div class="infobox">' +
+        '                <div class="task">' +
+        '                    <div>Progression</div>' +
+        '                    <div class="prog"><div></div></div>' +
+        '                </div>' +
+        '                <div class="level">' +
+        '                    <div>Level</div>' +
+        '                    <div class="prog"></div>' +
+        '                </div>' +
+        '                <div class="xp">' +
+        '                    <div>Experience</div>' +
+        '                    <div class="prog"><div></div></div>' +
+        '                </div>' +
+        '            </div>' +
+    '            </div>' +
+    '    </div>';
+
+spq.ProgressQuestLowLevel = function() {
 
 var document = undefined;
 

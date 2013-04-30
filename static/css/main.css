@@ -186,10 +186,12 @@
   font-family: sans-serif;
   background-color: #232323;
   color: #919191;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -120px;
+  margin-left: -250px;
   width: 500px;
-  margin: auto;
-  display: table;
-  height: 100%;
 }
 .superprogressquest article,
 .superprogressquest aside,
@@ -377,12 +379,6 @@
 .superprogressquest table {
   border-collapse: collapse;
   border-spacing: 0;
-}
-.superprogressquest .vcenterdiv {
-  display: table-cell;
-  vertical-align: middle;
-  height: 100%;
-  width: 100%;
 }
 .superprogressquest .killing {
   height: 235px;

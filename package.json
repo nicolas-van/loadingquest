@@ -1,9 +1,0 @@
-{
-    "jam": {
-        "packageDir": "static/js",
-        "dependencies": {
-            "jquery": "1.8.0",
-            "less": null
-        }
-    }
-}

@@ -6,96 +6,32 @@
     <title>Super Progress Quest</title>
     <meta name="description" content="{{ site.description }}">
 
-    <link rel="stylesheet" type="text/css" href="static/css/normalize.css">
-    <link rel="stylesheet/less" type="text/css" href="static/css/main.less">
-    <link rel="stylesheet" type="text/css" href="static/js/jquery-ui/jquery-ui.css">
-    <script src="static/js/less/lib/index.js" type="text/javascript"></script>
+    <style media="screen" type="text/css">
+        html, body {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            font-family: sans-serif;
+            background-color: #232323;
+            color: #919191;
+        }
+    </style>
 
-    <script src="static/js/jquery/jquery.js" type="text/javascript"></script>
-    <script src="static/js/jquery-ui/jquery-ui.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="static/css/main.css">
+
+    <script src="static/js/jquery.js" type="text/javascript"></script>
+    <script src="static/js/jquery-ui.js" type="text/javascript"></script>
 
     <script src="superprogressquest.js"></script>
     <script>
         $(document).ready(function() {
-            var pq = new ProgressQuest();
-            var display = function(text) {
-                var $tmp = $("<div />");
-                $tmp.text(text);
-                $(".killing_content").append($tmp);
-                while (true) {
-                    var tot = 0;
-                    $(".killing_content").children().each(function(el) {
-                        tot += $(this).height();
-                    });
-                    if (tot >= $(".killing_content").height()) {
-                        $($(".killing_content").children()[0]).remove();
-                    } else {
-                        break;
-                    }
-                    break;
-                }
-            }
-            pq.events.killing = display;
-            var bar_color;
-            pq.events.progression = function(id, progression) {
-                if (id === "TaskBar") {
-                    var max = $(".task .prog").width();
-                    $(".task .prog div").width(max * progression);
-                } else if (id === "ExpBar") {
-                    var max = $(".xp .prog").width();
-                    $(".xp .prog div").width(max * progression);
-                    if (! bar_color) {
-                        bar_color = $(".xp .prog div").css("background-color");
-                    } else {
-                        $(".xp .prog div").animate({
-                            "background-color": "#ADAD33",
-                        }, 100, function() {
-                            $(".xp .prog div").animate({
-                                "background-color": bar_color,
-                            }, 300);
-                        });
-                    }
-                }
-            };
-            pq.events.print_list = function(id, key, value) {
-                if (id === "Traits" && key === "Level") {
-                    $(".level .prog").text(value);
-                }
-            };
-            pq.events.item = display;
-            pq.launch();
+            superprogressquest.launch();
         });
     </script>
 </head>
 
 <body>
     <a href="https://github.com/nicolas-van/superprogressquest"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
-    <div class="tablediv">
-        <div class="vcenterdiv">
-            <header>
-                <div>
-                    <h1>Super Progress Quest<h1>
-                </div>
-            </header>
-            <div class="killing">
-                <div class="killing_content" />
-            </div>
-            <div class="infobox">
-                <div class="task">
-                    <div>Progression</div>
-                    <div class="prog"><div></div></div>
-                </div>
-                <div class="level">
-                    <div>Level</div>
-                    <div class="prog"></div>
-                </div>
-                <div class="xp">
-                    <div>Experience</div>
-                    <div class="prog"><div></div></div>
-                </div>
-            </div>
-        <div>
-    </div>
 </body>
 
 </html>

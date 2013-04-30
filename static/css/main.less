@@ -6,78 +6,74 @@
 @import url(http://fonts.googleapis.com/css?family=Irish+Grover);
 
 
-.base_style() {
-    @import url(normalize.less);
-}
+.superprogressquest {
 
-html {
+    .base_style() {
+        @import url(normalize.less);
+        font-family: sans-serif;
+    }
+    
     .base_style();
-    font-family: sans-serif;
-}
-
-html, body {
-    height: 100%;
     background-color: @back_color;
     color: @text_color;
-}
 
-.tablediv {
     width: 500px;
     margin: auto;
     display: table;
     height: 100%;
-}
 
-.vcenterdiv {
-    display: table-cell;
-    vertical-align: middle;
-    height: 100%;
-    width: 100%;
-}
-
-.killing {
-    height: 235px;
-    padding: 15px;
-    border: 1px solid @border_color;
-    border-radius: 8px;
-}
-
-.killing_content {
-    height: 190px;
-}
-
-header {
-    position: relative;
-    div {
-        position: absolute;
-        text-align: center;
-        bottom: -10px;
-        width: 500px;
-        font-family: 'Irish Grover', cursive;
-        font-size: 1.5em;
+    .vcenterdiv {
+        display: table-cell;
+        vertical-align: middle;
+        height: 100%;
+        width: 100%;
     }
-}
 
-.infobox {
-    display: table;
-    width: 100%;
+    .killing {
+        height: 235px;
+        padding: 15px;
+        border: 1px solid @border_color;
+        border-radius: 8px;
+    }
 
-    .task, .xp, .level {
-        font-size: 11px;
-        height: 15px;
-        display: table-row;
+    .killing_content {
+        height: 190px;
+    }
+
+    header {
+        position: relative;
         div {
-            display: table-cell;
-            vertical-align: middle;
+            position: absolute;
+            text-align: center;
+            bottom: -10px;
+            width: 500px;
+            font-family: 'Irish Grover', cursive;
+            font-size: 1.5em;
         }
-        .prog {
-            width: 100%;
-            padding: 3px 15px;
+    }
+
+    .infobox {
+        display: table;
+        width: 100%;
+
+        .task, .xp, .level {
+            font-size: 11px;
+            height: 15px;
+            display: table-row;
             div {
-                background-color: @border_color;
-                width: 0px;
-                height: 9px;
+                display: table-cell;
+                vertical-align: middle;
+            }
+            .prog {
+                width: 100%;
+                padding: 3px 15px;
+                div {
+                    background-color: @border_color;
+                    width: 0px;
+                    height: 9px;
+                }
             }
         }
     }
+
 }

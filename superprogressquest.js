@@ -1,5 +1,17 @@
 
-ProgressQuest = function() {
+(function() {
+
+if (typeof(define) !== "undefined") { // amd
+    define(["jquery"], declare);
+} else { // define global variable
+    window.superprogressquest = declare($);
+}
+
+function declare($) {
+
+var superprogressquest = {};
+
+superprogressquest.ProgressQuest = function() {
 
 var document = undefined;
 
@@ -3378,3 +3390,8 @@ this.events = events;
 this.launch = launch;
 
 };
+
+return superprogressquest;
+}
+
+})();

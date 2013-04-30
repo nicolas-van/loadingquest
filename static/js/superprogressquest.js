@@ -2,7 +2,7 @@
 (function() {
 
 if (typeof(define) !== "undefined") { // amd
-    define(["jquery"], declare);
+    define(["jquery", "jquery-ui"], declare);
 } else { // define global variable
     window.superprogressquest = declare($);
 }
@@ -17,11 +17,12 @@ spq.launch = function() {
     if (cur) {
         throw new Error("No multiple instances allowed");
     }
-    cur = new spq.ProgressQuestLowLevel();
+    cur = create_instance();
     cur.$el = $(html);
     $("body").append(cur.$el);
-    var pq = new spq.ProgressQuestLowLevel();
     var display = function(text) {
+        if (! cur)
+          return;
         var $tmp = $("<div />");
         $tmp.text(text);
         cur.$el.find(".killing_content").append($tmp);
@@ -38,9 +39,11 @@ spq.launch = function() {
             break;
         }
     }
-    pq.events.killing = display;
+    cur.events.killing = display;
     var bar_color;
-    pq.events.progression = function(id, progression) {
+    cur.events.progression = function(id, progression) {
+        if (! cur)
+          return;
         if (id === "TaskBar") {
             var max = cur.$el.find(".task .prog").width();
             cur.$el.find(".task .prog div").width(max * progression);
@@ -60,14 +63,24 @@ spq.launch = function() {
             }
         }
     };
-    pq.events.print_list = function(id, key, value) {
+    cur.events.print_list = function(id, key, value) {
+        if (! cur)
+          return;
         if (id === "Traits" && key === "Level") {
             cur.$el.find(".level .prog").text(value);
         }
     };
-    pq.events.item = display;
-    pq.launch();
-}
+    cur.events.item = display;
+    cur.launch();
+};
+
+spq.stop = function() {
+  if (! cur)
+    return;
+  cur.stop();
+  cur.$el.remove();
+  cur = undefined;
+};
 
 var html = '' +
     '    <div class="superprogressquest">'+
@@ -95,7 +108,15 @@ var html = '' +
     '            </div>' +
     '    </div>';
 
-spq.ProgressQuestLowLevel = function() {
+var create_instance = function() {
+
+var stopProgressQuest = false;
+
+var setTimeout = function() {
+  if (stopProgressQuest)
+    return;
+  return window.setTimeout.apply(window, arguments);
+};
 
 var document = undefined;
 
@@ -3449,6 +3470,8 @@ function Brag(trigger) {
 }
 
 function launch() {
+  if (stopProgressQuest)
+    throw Error("Stoped already");
   if (localStorage.getItem("progressquestplayer")) {
     real_launch(localStorage.getItem("progressquestplayer"));
   } else {
@@ -3465,8 +3488,15 @@ function real_launch(name) {
   FormCreate(name);
 }
 
-this.events = events;
-this.launch = launch;
+var stop = function(){
+  stopProgressQuest = true;
+};
+
+return {
+  events: events,
+  launch: launch,
+  stop: stop,
+};
 
 };
 

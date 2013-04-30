@@ -190,11 +190,11 @@
   top: 50%;
   left: 50%;
   margin-top: -220px;
-  margin-left: -265px;
+  margin-left: -266px;
   width: 500px;
   border: 1px solid #4b4d41;
   padding: 100px 15px 15px 15px;
-  background-color: #ffffff;
+  background-color: #f1f1f1;
   border-radius: 8px;
   opacity: 0.8;
 }

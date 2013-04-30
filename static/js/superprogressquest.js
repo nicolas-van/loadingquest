@@ -54,7 +54,7 @@ spq.launch = function() {
                 bar_color = $(".xp .prog div").css("background-color");
             } else {
                 cur.$el.find(".xp .prog div").animate({
-                    "background-color": "#ADAD33",
+                    "background-color": "#E0E028",
                 }, 100, function() {
                     cur.$el.find(".xp .prog div").animate({
                         "background-color": bar_color,

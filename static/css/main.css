@@ -184,14 +184,18 @@
  */
 
   font-family: sans-serif;
-  background-color: #232323;
-  color: #919191;
+  color: #4b4d41;
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-top: -120px;
-  margin-left: -250px;
+  margin-top: -220px;
+  margin-left: -265px;
   width: 500px;
+  border: 1px solid #4b4d41;
+  padding: 100px 15px 15px 15px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  opacity: 0.8;
 }
 .superprogressquest article,
 .superprogressquest aside,
@@ -383,7 +387,7 @@
 .superprogressquest .killing {
   height: 235px;
   padding: 15px;
-  border: 1px solid #616161;
+  border: 1px solid #4b4d41;
   border-radius: 8px;
 }
 .superprogressquest .killing_content {
@@ -426,7 +430,7 @@
 .superprogressquest .infobox .task .prog div,
 .superprogressquest .infobox .xp .prog div,
 .superprogressquest .infobox .level .prog div {
-  background-color: #616161;
+  background-color: #4b4d41;
   width: 0px;
   height: 9px;
 }

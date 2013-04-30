@@ -1,7 +1,7 @@
 
-@back_color: #232323;
-@text_color: #919191;
-@border_color: #616161;
+@back_color: white;
+@text_color: #4B4D41;
+@border_color: #4B4D41;
 
 @import url(http://fonts.googleapis.com/css?family=Irish+Grover);
 
@@ -11,18 +11,23 @@
     .base_style() {
         @import url(normalize.less);
         font-family: sans-serif;
+        color: @text_color;
     }
 
     .base_style();
-    background-color: @back_color;
     color: @text_color;
 
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -120px;
-    margin-left: -250px;
+    margin-top: -220px;
+    margin-left: -265px;
     width: 500px;
+    border: 1px solid @border_color;
+    padding: 100px 15px 15px 15px;
+    background-color: @back_color;
+    border-radius: 8px;
+    opacity: 0.8;
 
     .killing {
         height: 235px;

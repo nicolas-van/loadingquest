@@ -11,26 +11,27 @@ function declare($) {
 
 var spq = {};
 
-var $display_div;
+var cur;
 
 spq.launch = function() {
-    if ($display_div) {
+    if (cur) {
         throw new Error("No multiple instances allowed");
     }
-    $display_div = $(html);
-    $("body").append($display_div);
+    cur = new spq.ProgressQuestLowLevel();
+    cur.$el = $(html);
+    $("body").append(cur.$el);
     var pq = new spq.ProgressQuestLowLevel();
     var display = function(text) {
         var $tmp = $("<div />");
         $tmp.text(text);
-        $display_div.find(".killing_content").append($tmp);
+        cur.$el.find(".killing_content").append($tmp);
         while (true) {
             var tot = 0;
-            $display_div.find(".killing_content").children().each(function(el) {
+            cur.$el.find(".killing_content").children().each(function(el) {
                 tot += $(this).height();
             });
-            if (tot >= $display_div.find(".killing_content").height()) {
-                $($display_div.find(".killing_content").children()[0]).remove();
+            if (tot >= cur.$el.find(".killing_content").height()) {
+                $(cur.$el.find(".killing_content").children()[0]).remove();
             } else {
                 break;
             }
@@ -41,18 +42,18 @@ spq.launch = function() {
     var bar_color;
     pq.events.progression = function(id, progression) {
         if (id === "TaskBar") {
-            var max = $display_div.find(".task .prog").width();
-            $display_div.find(".task .prog div").width(max * progression);
+            var max = cur.$el.find(".task .prog").width();
+            cur.$el.find(".task .prog div").width(max * progression);
         } else if (id === "ExpBar") {
-            var max = $display_div.find(".xp .prog").width();
-            $display_div.find(".xp .prog div").width(max * progression);
+            var max = cur.$el.find(".xp .prog").width();
+            cur.$el.find(".xp .prog div").width(max * progression);
             if (! bar_color) {
                 bar_color = $(".xp .prog div").css("background-color");
             } else {
-                $display_div.find(".xp .prog div").animate({
+                cur.$el.find(".xp .prog div").animate({
                     "background-color": "#ADAD33",
                 }, 100, function() {
-                    $display_div.find(".xp .prog div").animate({
+                    cur.$el.find(".xp .prog div").animate({
                         "background-color": bar_color,
                     }, 300);
                 });
@@ -61,7 +62,7 @@ spq.launch = function() {
     };
     pq.events.print_list = function(id, key, value) {
         if (id === "Traits" && key === "Level") {
-            $display_div.find(".level .prog").text(value);
+            cur.$el.find(".level .prog").text(value);
         }
     };
     pq.events.item = display;

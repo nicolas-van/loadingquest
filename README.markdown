@@ -3,7 +3,7 @@ Super Progress Quest
 
 A fork of Progress Quest by Eric Fredricksen. This javascript version is 100% without controls, which is a major improvement.
 
-See the result [here](http://superprogressquest.neoname.eu)
+[Test it here.](http://superprogressquest.neoname.eu)
 
 You can use it on your own web page using the following code:
 

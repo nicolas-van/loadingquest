@@ -37,6 +37,11 @@
     <script>
         requirejs.config({
             baseUrl: "static/js",
+            shim: {
+                "jquery-ui": {
+                    deps: ['jquery'],
+                },
+            },
         });
         require(["superprogressquest"], function(superprogressquest) {
             superprogressquest.launch();

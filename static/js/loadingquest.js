@@ -1,5 +1,5 @@
 /*
-Super Progress Quest
+Loading Quest
 Copyright (c) 2013, Nicolas Vanhoren
 
 Released under the MIT license
@@ -28,7 +28,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 if (typeof(define) !== "undefined") { // amd
     define(["jquery", "jquery-ui"], declare);
 } else { // define global variable
-    window.superprogressquest = declare($);
+    window.loadingquest = declare($);
 }
 
 function declare($) {
@@ -107,10 +107,10 @@ spq.stop = function() {
 };
 
 var html = '' +
-    '    <div class="superprogressquest">'+
+    '    <div class="loadingquest">'+
     '            <header>' +
     '                <div>' +
-    '                    <h1>Super Progress Quest<h1>' +
+    '                    <h1>Loading Quest<h1>' +
     '                </div>' +
     '            </header>' +
     '            <div class="killing">' +

@@ -1,10 +1,10 @@
 
 (function () {
 
-var url = "http://superprogressquest.neoname.eu/";
+var url = "http://loadingquest.neoname.eu/";
 
-window.superprogressquest_require = require.config({
-    context: "superprogressquest",
+window.loadingquest_require = require.config({
+    context: "loadingquest",
     baseUrl: url + "static/js",
     shim: {
         "jquery-ui": {
@@ -13,7 +13,7 @@ window.superprogressquest_require = require.config({
     },
 });
 
-window.superprogressquest_require(["jquery", "jquery-ui"], function($) {
+window.loadingquest_require(["jquery", "jquery-ui"], function($) {
     $.noConflict();
 
     var script = $('<link rel="stylesheet" type="text/css" href="' + url + 'static/css/main.css"></link>');

@@ -17,6 +17,9 @@
             border-radius: 0px 5px 5px 0px;
             opacity: 0.8;
         }
+        .use_link a {
+            color: black;
+        }
     </style>
 
     <link rel="stylesheet" type="text/css" href="static/css/main.css" />
@@ -31,8 +34,8 @@
                 },
             },
         });
-        require(["superprogressquest"], function(superprogressquest) {
-            superprogressquest.launch();
+        require(["loadingquest"], function(loadingquest) {
+            loadingquest.launch();
         });
     </script>
 </%block>

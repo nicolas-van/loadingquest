@@ -1,5 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Irish+Grover);
-.superprogressquest {
+.loadingquest {
   /*! normalize.css v2.0.1 | MIT License | git.io/normalize */
 
   /* ==========================================================================
@@ -198,32 +198,32 @@
   border-radius: 8px;
   opacity: 0.8;
 }
-.superprogressquest article,
-.superprogressquest aside,
-.superprogressquest details,
-.superprogressquest figcaption,
-.superprogressquest figure,
-.superprogressquest footer,
-.superprogressquest header,
-.superprogressquest hgroup,
-.superprogressquest nav,
-.superprogressquest section,
-.superprogressquest summary {
+.loadingquest article,
+.loadingquest aside,
+.loadingquest details,
+.loadingquest figcaption,
+.loadingquest figure,
+.loadingquest footer,
+.loadingquest header,
+.loadingquest hgroup,
+.loadingquest nav,
+.loadingquest section,
+.loadingquest summary {
   display: block;
 }
-.superprogressquest audio,
-.superprogressquest canvas,
-.superprogressquest video {
+.loadingquest audio,
+.loadingquest canvas,
+.loadingquest video {
   display: inline-block;
 }
-.superprogressquest audio:not([controls]) {
+.loadingquest audio:not([controls]) {
   display: none;
   height: 0;
 }
-.superprogressquest [hidden] {
+.loadingquest [hidden] {
   display: none;
 }
-.superprogressquest html {
+.loadingquest html {
   font-family: sans-serif;
   /* 1 */
 
@@ -232,79 +232,79 @@
   /* 2 */
 
 }
-.superprogressquest body {
+.loadingquest body {
   margin: 0;
 }
-.superprogressquest a:focus {
+.loadingquest a:focus {
   outline: thin dotted;
 }
-.superprogressquest a:active,
-.superprogressquest a:hover {
+.loadingquest a:active,
+.loadingquest a:hover {
   outline: 0;
 }
-.superprogressquest h1 {
+.loadingquest h1 {
   font-size: 2em;
 }
-.superprogressquest abbr[title] {
+.loadingquest abbr[title] {
   border-bottom: 1px dotted;
 }
-.superprogressquest b,
-.superprogressquest strong {
+.loadingquest b,
+.loadingquest strong {
   font-weight: bold;
 }
-.superprogressquest dfn {
+.loadingquest dfn {
   font-style: italic;
 }
-.superprogressquest mark {
+.loadingquest mark {
   background: #ff0;
   color: #000;
 }
-.superprogressquest code,
-.superprogressquest kbd,
-.superprogressquest pre,
-.superprogressquest samp {
+.loadingquest code,
+.loadingquest kbd,
+.loadingquest pre,
+.loadingquest samp {
   font-family: monospace, serif;
   font-size: 1em;
 }
-.superprogressquest pre {
+.loadingquest pre {
   white-space: pre;
   white-space: pre-wrap;
   word-wrap: break-word;
 }
-.superprogressquest q {
+.loadingquest q {
   quotes: "\201C" "\201D" "\2018" "\2019";
 }
-.superprogressquest small {
+.loadingquest small {
   font-size: 80%;
 }
-.superprogressquest sub,
-.superprogressquest sup {
+.loadingquest sub,
+.loadingquest sup {
   font-size: 75%;
   line-height: 0;
   position: relative;
   vertical-align: baseline;
 }
-.superprogressquest sup {
+.loadingquest sup {
   top: -0.5em;
 }
-.superprogressquest sub {
+.loadingquest sub {
   bottom: -0.25em;
 }
-.superprogressquest img {
+.loadingquest img {
   border: 0;
 }
-.superprogressquest svg:not(:root) {
+.loadingquest svg:not(:root) {
   overflow: hidden;
 }
-.superprogressquest figure {
+.loadingquest figure {
   margin: 0;
 }
-.superprogressquest fieldset {
+.loadingquest fieldset {
   border: 1px solid #c0c0c0;
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em;
 }
-.superprogressquest legend {
+.loadingquest legend {
   border: 0;
   /* 1 */
 
@@ -312,10 +312,10 @@
   /* 2 */
 
 }
-.superprogressquest button,
-.superprogressquest input,
-.superprogressquest select,
-.superprogressquest textarea {
+.loadingquest button,
+.loadingquest input,
+.loadingquest select,
+.loadingquest textarea {
   font-family: inherit;
   /* 1 */
 
@@ -326,14 +326,14 @@
   /* 3 */
 
 }
-.superprogressquest button,
-.superprogressquest input {
+.loadingquest button,
+.loadingquest input {
   line-height: normal;
 }
-.superprogressquest button,
-.superprogressquest html input[type="button"],
-.superprogressquest input[type="reset"],
-.superprogressquest input[type="submit"] {
+.loadingquest button,
+.loadingquest html input[type="button"],
+.loadingquest input[type="reset"],
+.loadingquest input[type="submit"] {
   -webkit-appearance: button;
   /* 2 */
 
@@ -341,12 +341,12 @@
   /* 3 */
 
 }
-.superprogressquest button[disabled],
-.superprogressquest input[disabled] {
+.loadingquest button[disabled],
+.loadingquest input[disabled] {
   cursor: default;
 }
-.superprogressquest input[type="checkbox"],
-.superprogressquest input[type="radio"] {
+.loadingquest input[type="checkbox"],
+.loadingquest input[type="radio"] {
   box-sizing: border-box;
   /* 1 */
 
@@ -354,7 +354,7 @@
   /* 2 */
 
 }
-.superprogressquest input[type="search"] {
+.loadingquest input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
 
@@ -364,16 +364,16 @@
 
   box-sizing: content-box;
 }
-.superprogressquest input[type="search"]::-webkit-search-cancel-button,
-.superprogressquest input[type="search"]::-webkit-search-decoration {
+.loadingquest input[type="search"]::-webkit-search-cancel-button,
+.loadingquest input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
-.superprogressquest button::-moz-focus-inner,
-.superprogressquest input::-moz-focus-inner {
+.loadingquest button::-moz-focus-inner,
+.loadingquest input::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
-.superprogressquest textarea {
+.loadingquest textarea {
   overflow: auto;
   /* 1 */
 
@@ -381,58 +381,58 @@
   /* 2 */
 
 }
-.superprogressquest table {
+.loadingquest table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-.superprogressquest .killing {
+.loadingquest .killing {
   height: 235px;
   padding: 15px;
   border: 1px solid #4b4d41;
   border-radius: 8px;
 }
-.superprogressquest .killing_content {
+.loadingquest .killing_content {
   height: 190px;
 }
-.superprogressquest header {
+.loadingquest header {
   position: relative;
 }
-.superprogressquest header div {
+.loadingquest header div {
   position: absolute;
   text-align: center;
   bottom: -10px;
   width: 500px;
 }
-.superprogressquest header div h1 {
+.loadingquest header div h1 {
   font-family: 'Irish Grover', cursive;
   font-size: 48px;
 }
-.superprogressquest .infobox {
+.loadingquest .infobox {
   display: table;
   width: 100%;
 }
-.superprogressquest .infobox .task,
-.superprogressquest .infobox .xp,
-.superprogressquest .infobox .level {
+.loadingquest .infobox .task,
+.loadingquest .infobox .xp,
+.loadingquest .infobox .level {
   font-size: 11px;
   height: 15px;
   display: table-row;
 }
-.superprogressquest .infobox .task div,
-.superprogressquest .infobox .xp div,
-.superprogressquest .infobox .level div {
+.loadingquest .infobox .task div,
+.loadingquest .infobox .xp div,
+.loadingquest .infobox .level div {
   display: table-cell;
   vertical-align: middle;
 }
-.superprogressquest .infobox .task .prog,
-.superprogressquest .infobox .xp .prog,
-.superprogressquest .infobox .level .prog {
+.loadingquest .infobox .task .prog,
+.loadingquest .infobox .xp .prog,
+.loadingquest .infobox .level .prog {
   width: 100%;
   padding: 3px 15px;
 }
-.superprogressquest .infobox .task .prog div,
-.superprogressquest .infobox .xp .prog div,
-.superprogressquest .infobox .level .prog div {
+.loadingquest .infobox .task .prog div,
+.loadingquest .infobox .xp .prog div,
+.loadingquest .infobox .level .prog div {
   background-color: #4b4d41;
   width: 0px;
   height: 9px;

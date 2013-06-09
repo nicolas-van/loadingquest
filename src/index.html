@@ -6,30 +6,39 @@
 <%text>
 
 Loading Quest
-====================
+=============
 
-A fork of Progress Quest by Eric Fredricksen. This javascript version is 100% without controls, which is a major improvement.
+Loading Quest is a the ultimate loading widget for web applications that have long processing requests.
+It is a role playing video game 100% without controls. Thanks to this, Loading Quest is the only video
+game that can really be by used anyone: a 2-months baby, your dog or even your boss.
 
 [Test it here.](/loadingquest.html)
 
-You can use it on your own web page using the following code:
+Loading Quest is a fork of Progress Quest by Eric Fredricksen. It is licensed under the terms of the MIT
+license.
 
-    <script src="http://loadingquest.neoname.eu/require.js"></script>
-    <script src="http://loadingquest.neoname.eu/require-config.js"></script>
-    <script>
-        loadingquest_require(["loadingquest"], function(lq) {
-            lq.launch();
-        });
-    </script>
+Using Loading Quest on your own web site
+----------------------------------------
+
+Start by [downloading it here](/loadingquest.zip).
+
+Loading quest is just a Javascript library with Jquery and Jquery-ui as dependencies plus a css
+file. All those files are provided in the zip file. Example of html code to load those files:
+
+    <link rel="stylesheet" type="text/css" href="loadingquest.css" />
+
+    <script src="jquery.js" type="text/javascript"></script>
+    <script src="jquery-ui.js" type="text/javascript"></script>
+    <script src="loadingquest.js" type="text/javascript"></script>
+
+To start the animation, use this code:
+
+    loadingquest.launch();
 
 If you want to stop the animation (although I don't understand why you would want to
 do such a thing), you can use the following code:
 
-    loadingquest_require(["loadingquest"], function(lq) {
-        lq.stop();
-    });
-
-
+    loadingquest.stop();
 
 </%text>
 </%block>

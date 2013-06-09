@@ -41,22 +41,28 @@
                     
                     
 <h1>Loading Quest</h1>
-<p>A fork of Progress Quest by Eric Fredricksen. This javascript version is 100% without controls, which is a major improvement.</p>
+<p>Loading Quest is a the ultimate loading widget for web applications that have long processing requests.
+It is a role playing video game 100% without controls. Thanks to this, Loading Quest is the only video
+game that can really be by used anyone: a 2-months baby, your dog or even your boss.</p>
 <p><a href="/loadingquest.html">Test it here.</a></p>
-<p>You can use it on your own web page using the following code:</p>
-<pre><code>&lt;script src="http://loadingquest.neoname.eu/require.js"&gt;&lt;/script&gt;
-&lt;script src="http://loadingquest.neoname.eu/require-config.js"&gt;&lt;/script&gt;
-&lt;script&gt;
-    loadingquest_require(["loadingquest"], function(lq) {
-        lq.launch();
-    });
-&lt;/script&gt;
+<p>Loading Quest is a fork of Progress Quest by Eric Fredricksen. It is licensed under the terms of the MIT
+license.</p>
+<h2>Using Loading Quest on your own web site</h2>
+<p>Start by <a href="/loadingquest.zip">downloading it here</a>.</p>
+<p>Loading quest is just a Javascript library with Jquery and Jquery-ui as dependencies plus a css
+file. All those files are provided in the zip file. Example of html code to load those files:</p>
+<pre><code>&lt;link rel="stylesheet" type="text/css" href="loadingquest.css" /&gt;
+
+&lt;script src="jquery.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="jquery-ui.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="loadingquest.js" type="text/javascript"&gt;&lt;/script&gt;
+</code></pre>
+<p>To start the animation, use this code:</p>
+<pre><code>loadingquest.launch();
 </code></pre>
 <p>If you want to stop the animation (although I don't understand why you would want to
 do such a thing), you can use the following code:</p>
-<pre><code>loadingquest_require(["loadingquest"], function(lq) {
-    lq.stop();
-});
+<pre><code>loadingquest.stop();
 </code></pre>
 
                 </div>

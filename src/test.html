@@ -1,33 +1,21 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-    <meta charset='utf-8'>
-    <title>Super Progress Quest</title>
+<%inherit file="/base.mako"/>
 
+<%block name="head">
+    ${parent.head()}
     <style media="screen" type="text/css">
-        html, body {
-            height: 100%;
-            padding: 0;
-            margin: 0;
-            font-family: sans-serif;
-            background-color: #F7F7F7;
-            color: black;
-        }
         .use_link {
-            width: 300px;
             position: fixed;
-            bottom: 0px;
-            left: 50%;
-            margin-left: -150px;
-            margin-bottom: 30px;
+            top: 50px;
+            left: 0px;
             font-size: 16px;
             font-family: sans-serif;
             text-align: center;
-        }
-        .use_link a {
-            color: #4B4D41;
-            text-decoration: none;
+            padding: 10px;
+            border: 1px solid black;
+            border-left: 0px;
+            border-radius: 0px 5px 5px 0px;
+            opacity: 0.8;
         }
     </style>
 
@@ -47,25 +35,13 @@
             superprogressquest.launch();
         });
     </script>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+</%block>
 
-      ga('create', 'UA-33415030-4', 'neoname.eu');
-      ga('send', 'pageview');
 
-    </script>
-</head>
-
-<body>
-    <a href="https://github.com/nicolas-van/superprogressquest"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+<%block name="mainContent">
     <div class="use_link">
-        <a href="https://github.com/nicolas-van/superprogressquest">
-            You can put this widget on you own web site. Click here to know how.
+        <a href="/">
+            Back to Home Page
         </a>
     </div>
-</body>
-
-</html>
+</%block>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Loading Quest</title>
+
+    <style media="screen" type="text/css">
+        html, body {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            font-family: sans-serif;
+            background-color: #F7F7F7;
+            color: black;
+        }
+        .use_link {
+            width: 300px;
+            position: fixed;
+            bottom: 0px;
+            left: 50%;
+            margin-left: -150px;
+            margin-bottom: 30px;
+            font-size: 16px;
+            font-family: sans-serif;
+            text-align: center;
+        }
+        .use_link a {
+            color: #4B4D41;
+            text-decoration: none;
+        }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="static/css/main.css" />
+
+    <script src="require.js" type="text/javascript"></script>
+    <script>
+        requirejs.config({
+            baseUrl: "static/js",
+            shim: {
+                "jquery-ui": {
+                    deps: ['jquery'],
+                },
+            },
+        });
+        require(["superprogressquest"], function(superprogressquest) {
+            superprogressquest.launch();
+        });
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

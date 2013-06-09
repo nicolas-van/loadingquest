@@ -1,0 +1,49 @@
+<%!
+    title = "Loading Quest"
+    description = "Loading Quest - Waiting should be fun"
+%>
+
+<%inherit file="/common/base.mako"/>
+
+<%block name="head">
+</%block>
+
+<%block name="beforeContent">
+    <a href="https://github.com/nicolas-van/loadingquest"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+</%block>
+
+<%block name="mainContent">
+
+<%block filter="markdown">
+<%text>
+
+Super Progress Quest
+====================
+
+A fork of Progress Quest by Eric Fredricksen. This javascript version is 100% without controls, which is a major improvement.
+
+[Test it here.](/test.html)
+
+You can use it on your own web page using the following code:
+
+    <script src="http://superprogressquest.neoname.eu/require.js"></script>
+    <script src="http://superprogressquest.neoname.eu/require-config.js"></script>
+    <script>
+        superprogressquest_require(["superprogressquest"], function(spq) {
+            spq.launch();
+        });
+    </script>
+
+If you want to stop the animation (although I don't understand why you would want to
+do such a thing), you can use the following code:
+
+    superprogressquest_require(["superprogressquest"], function(spq) {
+        spq.stop();
+    });
+
+
+
+</%text>
+</%block>
+
+</%block>

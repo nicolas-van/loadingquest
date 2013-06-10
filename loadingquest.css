@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Irish+Grover);
+@import url(http://fonts.googleapis.com/css?family=EB+Garamond);
 .loadingquest {
   /*! normalize.css v2.0.1 | MIT License | git.io/normalize */
 
@@ -183,7 +183,7 @@
  * Remove most spacing between table cells.
  */
 
-  font-family: sans-serif;
+  font-family: 'EB Garamond', serif;
   font-size: 16px;
   color: #4b4d41;
   position: absolute;
@@ -385,15 +385,6 @@
   border-collapse: collapse;
   border-spacing: 0;
 }
-.loadingquest .killing {
-  height: 235px;
-  padding: 15px;
-  border: 1px solid #4b4d41;
-  border-radius: 8px;
-}
-.loadingquest .killing_content {
-  height: 190px;
-}
 .loadingquest header {
   position: relative;
 }
@@ -404,35 +395,45 @@
   width: 500px;
 }
 .loadingquest header div h1 {
-  font-family: 'Irish Grover', cursive;
+  font-family: 'EB Garamond', serif;
+  font-weight: normal;
   font-size: 48px;
 }
-.loadingquest .infobox {
+.loadingquest .killing {
+  height: 235px;
+  padding: 15px;
+  border: 1px solid #4b4d41;
+  border-radius: 8px;
+}
+.loadingquest .killing .killing_content {
+  height: 180px;
+}
+.loadingquest .killing .infobox {
   display: table;
   width: 100%;
 }
-.loadingquest .infobox .task,
-.loadingquest .infobox .xp,
-.loadingquest .infobox .level {
-  font-size: 11px;
+.loadingquest .killing .infobox .task,
+.loadingquest .killing .infobox .xp,
+.loadingquest .killing .infobox .level {
+  font-size: 14px;
   height: 15px;
   display: table-row;
 }
-.loadingquest .infobox .task div,
-.loadingquest .infobox .xp div,
-.loadingquest .infobox .level div {
+.loadingquest .killing .infobox .task div,
+.loadingquest .killing .infobox .xp div,
+.loadingquest .killing .infobox .level div {
   display: table-cell;
   vertical-align: middle;
 }
-.loadingquest .infobox .task .prog,
-.loadingquest .infobox .xp .prog,
-.loadingquest .infobox .level .prog {
+.loadingquest .killing .infobox .task .prog,
+.loadingquest .killing .infobox .xp .prog,
+.loadingquest .killing .infobox .level .prog {
   width: 100%;
   padding: 3px 15px;
 }
-.loadingquest .infobox .task .prog div,
-.loadingquest .infobox .xp .prog div,
-.loadingquest .infobox .level .prog div {
+.loadingquest .killing .infobox .task .prog div,
+.loadingquest .killing .infobox .xp .prog div,
+.loadingquest .killing .infobox .level .prog div {
   background-color: #4b4d41;
   width: 0px;
   height: 9px;

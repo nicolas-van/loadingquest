@@ -1,16 +1,19 @@
 
+
+@import url(http://fonts.googleapis.com/css?family=EB+Garamond);
+
 @back_color: #FFFFFF;
 @text_color: #4B4D41;
 @border_color: #4B4D41;
-
-@import url(http://fonts.googleapis.com/css?family=Irish+Grover);
+@base_font: 'EB Garamond', serif;
+@title_font: @base_font;
 
 
 .loadingquest {
 
     .base_style() {
         @import url(normalize.less);
-        font-family: sans-serif;
+        font-family: @base_font;
         color: @text_color;
         font-size: 16px;
     }
@@ -30,17 +33,6 @@
     border-radius: 8px;
     opacity: 0.8;
 
-    .killing {
-        height: 235px;
-        padding: 15px;
-        border: 1px solid @border_color;
-        border-radius: 8px;
-    }
-
-    .killing_content {
-        height: 190px;
-    }
-
     header {
         position: relative;
         div {
@@ -49,31 +41,43 @@
             bottom: -10px;
             width: 500px;
             h1 {
-                font-family: 'Irish Grover', cursive;
+                font-family: @title_font;
+                font-weight: normal;
                 font-size: 48px;
             }
         }
     }
 
-    .infobox {
-        display: table;
-        width: 100%;
+    .killing {
+        height: 235px;
+        padding: 15px;
+        border: 1px solid @border_color;
+        border-radius: 8px;
 
-        .task, .xp, .level {
-            font-size: 11px;
-            height: 15px;
-            display: table-row;
-            div {
-                display: table-cell;
-                vertical-align: middle;
-            }
-            .prog {
-                width: 100%;
-                padding: 3px 15px;
+        .killing_content {
+            height: 180px;
+        }
+
+        .infobox {
+            display: table;
+            width: 100%;
+
+            .task, .xp, .level {
+                font-size: 14px;
+                height: 15px;
+                display: table-row;
                 div {
-                    background-color: @border_color;
-                    width: 0px;
-                    height: 9px;
+                    display: table-cell;
+                    vertical-align: middle;
+                }
+                .prog {
+                    width: 100%;
+                    padding: 3px 15px;
+                    div {
+                        background-color: @border_color;
+                        width: 0px;
+                        height: 9px;
+                    }
                 }
             }
         }

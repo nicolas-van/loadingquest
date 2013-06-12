@@ -312,7 +312,7 @@
 
   /* Literal.Number.Integer.Long */
 
-  font-family: "Lora" serif;
+  font-family: "Lora", serif;
   font-size: 19px;
 }
 .progdesign article,
@@ -720,7 +720,7 @@
 .progdesign h3 {
   font-weight: normal;
   margin: 28px 0px;
-  font-family: "EB Garamond" serif;
+  font-family: "EB Garamond", serif;
 }
 .progdesign h3 {
   font-style: italic;

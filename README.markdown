@@ -1,7 +1,7 @@
 Loading Quest
 =============
 
-[See Loading Quest's web site for any information.](http://loadingquest.neoname.eu)
+[See Loading Quest's web site for any information.](http://nicolas-van.github.io/loadingquest/)
 
 Version 1.0.1
 
